@@ -76,8 +76,6 @@
   <section class="hero">
     <div class="hero-body">
       <div class="container is-fullhd">
-        <img src="static/images/CUSZ-03logo-whier.png"
-          style="align: left;width:192px;height:160px;position:absolute;margin-left: 100px" />
         <div class="columns is-centered">
           <div class="column has-text-centered">
 
@@ -85,12 +83,12 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://saliteta.github.io/">Butian Xiong</a>, Xiaoyu Ye, Tze Ho Elden Tse, Kai Han, Shuguang
-                Cui, <a href="https://mypage.cuhk.edu.cn/academics/lizhen/">Zhen Li</a>,</span>
+                <a href="https://saliteta.github.io/">¹Butian Xiong</a>, ¹Xiaoyu Ye, ³Tze Ho Elden Tse, ²Kai Han, ¹Shuguang
+                Cui, <a href="https://mypage.cuhk.edu.cn/academics/lizhen/">¹Zhen Li</a>,</span>
 
               <div class="is-size-5 publication-authors">
                 <!--The Chinese University of Hong Kong, Shenzhen-->
-                <span class="author-block">The Chinese University of Hong Kong, Shenzhen</span>
+                <span class="author-block">¹The Chinese University of Hong Kong, Shenzhen, ²The University of Hong Kong, ³University of Birmingham</span>
               </div>
 
 
@@ -321,7 +319,7 @@
     var left_images = ["SUGAR.JPG", "3DGS.JPG", "NERFACTO.JPG", "INSTANTNGP.JPG"];
     var right_images = ["SAM_GS_ALPHA.JPG", "SAM_GS_SHAPE_ONLY.JPG", "EXTRACTED_POINT_ALPHA.JPG", "EXTRACTED_POINT_SHAPE_ONLY.JPG"];
     var folders = ["CUHK_LOWER", "CUHK_UPPER", "HAV", "LFLS", "SMBU", "SZIIT"];
-    var locations = ["CUHK-SZ Lower Campus", "CUHK-SZ Upper Campus", "HAV", "LFLS", "SMBU", "SZIIT"];
+    var locations = ["Campus", "Modern Building", "Village", "Residence", "Russian Building", "College"];
     var lefts = ["SuGaR", "Vanilla GS", "Nerfacto", "Instant NGP"];
     var rights = ["SAM-GS Alpha", "SAM-GS Shape Only", "Extracted Point Alpha", "Extracted Point Shape Only"];
     var location_index = 0, left_index = 0, right_index = 0;
@@ -339,30 +337,12 @@
       const selectBox = document.getElementById("left_option");
       left_index = selectBox.selectedIndex;
       document.getElementById("path_left").src = "static/visualization_pc_jpg/" + folders[location_index] + "/" + left_images[left_index];
-      $(function () {
-        $(".twentytwenty-container").twentytwenty({
-          default_offset_pct: 0.3, // How much of the before image is visible when the page loads
-          orientation: 'horizontal', // Orientation of the before and after images ('horizontal' or 'vertical')
-          before_label: lefts[left_index], // Set a custom before label
-          after_label: rights[right_index], // Set a custom after label 
-          click_to_move: true // Allow a user to click (or tap) anywhere on the image to move the slider to that location.
-        });
-      });
     }
 
     function update_right() {
       const selectBox = document.getElementById("right_option");
       right_index = selectBox.selectedIndex;
       document.getElementById("path_right").src = "static/visualization_pc_jpg/" + folders[location_index] + "/" + right_images[right_index];
-      $(function () {
-        $(".twentytwenty-container").twentytwenty({
-          default_offset_pct: 0.3, // How much of the before image is visible when the page loads
-          orientation: 'horizontal', // Orientation of the before and after images ('horizontal' or 'vertical')
-          before_label: lefts[left_index], // Set a custom before label
-          after_label: rights[right_index], // Set a custom after label 
-          click_to_move: true // Allow a user to click (or tap) anywhere on the image to move the slider to that location.
-        });
-      });
     }
   </script>
   <div class="container is-fullhd">
@@ -384,12 +364,12 @@
             <tr>
               <td>
                 <select name="Location" id="location_option" onchange="update_location()">
-                  <option value=0>CUHK-SZ Lower Campus</option>
-                  <option value=1>CUHK-SZ Upper Campus</option>
-                  <option value=2>HAV</option>
-                  <option value=3>LFLS</option>
-                  <option value=4>SMBU</option>
-                  <option value=5>SZIIT</option>
+                  <option value=0>Campus</option>
+                  <option value=1>Modern Building</option>
+                  <option value=2>Village</option>
+                  <option value=3>Residence</option>
+                  <option value=4>Russian Building</option>
+                  <option value=5>College</option>
                 </select>
               </td>
               <td>
@@ -434,7 +414,7 @@
     <div class="columns is-centered has-text-centered">
       <h3 class="is-size-5">
         <b>Location: </b>
-        <b id="position">CUHK-SZ Lower Campus</b>
+        <b id="position">Campus</b>
       </h3>
     </div>
   </div>
@@ -493,8 +473,8 @@
       $(".twentytwenty-container").twentytwenty({
         default_offset_pct: 0.3, // How much of the before image is visible when the page loads
         orientation: 'horizontal', // Orientation of the before and after images ('horizontal' or 'vertical')
-        before_label: lefts[left_index], // Set a custom before label
-        after_label: rights[right_index], // Set a custom after label 
+        before_label: "Existing Solution", // Set a custom before label
+        after_label: "Ours", // Set a custom after label 
         click_to_move: true // Allow a user to click (or tap) anywhere on the image to move the slider to that location.
       });
     });
